@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="imagenPrincipal" id="imagenPrincipal">
+        <table>
+            <tr>
+                <td>
+                    <p class="textotitulo horario"><span id="campoTexto"></span></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="textotiempo horario"><span id="campoTiempo"></span></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="scroll-container">
+                        <span id="temporizadoBannerEmpezar">La predica empieza en: Tu texto aquí</span>
+                    </div>                    
+                </td>
+            </tr>
+        </table>
+        <div class="bannerLogoIglesia">
+            <img src="./img/LogoVisionFe.png" alt="imgVF">
+        </div>
+    </div>
+
+</body>
+<script src="horarios.js"></script>
+<script src="codigo.js"></script>
+<script>
+    function cargarContadorEvento(){
+        let jsonData = localStorage.getItem("horarios");
+        
+        if(jsonData){
+            let horariosGuardados = JSON.parse(jsonData);
+            var turnoHorarios = horariosGuardados[localStorage.getItem("turnoElegido")];
+            contador(turnoHorarios);
+        }
+    }
+    window.addEventListener('load', cargarContadorEvento);
+    function aplicarEstiloGuardado() {
+    if(localStorage.getItem("estiloTextoInferior")){
+        document.getElementById("temporizadoBannerEmpezar").style.cssText = localStorage.getItem("estiloTextoInferior");
+    }
+    if(localStorage.getItem("imagenFondo")){
+        document.getElementById("imagenPrincipal").style.cssText = localStorage.getItem("imagenFondo");
+    }
+    }
+    aplicarEstiloGuardado();
+    setInterval(aplicarEstiloGuardado, 1000);
+</script>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Ventana Externa</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </style>
+</head>
+
+<body>
+    <main>
+        <aside>
+            <div class="cajaImagenAside">
+                <figure>
+                    <img src="./img/LogoVisionFe.png" alt="">
+                </figure>
+            </div>
+            <div class="cajaEnlacesAside">
+                <div>
+                    <button>Tablas</button>
+                    <button>...</button>
+                    <button>...</button>
+                </div>
+            </div>
+            <div class="cajaBtnCerrar">
+                <button><img src="" alt="">X</button>
+            </div>
+        </aside>
+        <section class="cajaSecciones">
+            <section id="seccionTabla">
+                <div class="cajaSeleccionTurno">
+                    <label>Selecciona un turno:</label>
+                    <select id="seleccionTurno" onchange="verificaExistencia()">
+                        <option class="turnos" value="PrimerTurno">Primer turno</option>
+                        <option class="turnos" value="SegundoTurno" >Segundo turno</option>
+                        <option class="turnos" value="TercerTurno" >Tercer turno</option>
+                    </select>
+                </div>
+                <table id="horariosTable">
+                    <thead>
+                        <tr>
+                            <th>Texto</th>
+                            <th>Hora Fin</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="horariosBody">
+                    </tbody>
+                </table>
+                <div class="cajaBotones">
+                <button class="btnActulizar botonesAcciones" onclick="ActualizaHorario()">Actualizar</button>
+                <button class="btnPorDefecto botonesAcciones" onclick="ValoresDefecto()">Por Defecto</button>
+            </div>
+            </section>
+            <section class="seccionUltima">
+                <div class="cajaInsertarIT">
+                    <div class="cajaSeleccionaTextoImagen">
+                        <table class="tablaOpciones">
+                            <tr class="tOtr">
+                                <td class="tOtd"><label>Archivo interno:</label></td>
+                                <td class="tOtd"><input name="opcionTipoImagen" value="file" type="radio" checked></td>
+                            </tr>
+                            <tr class="tOtr">
+                                <td class="tOtd"><label>URL:</label></td>
+                                <td class="tOtd"><input name="opcionTipoImagen" value="text" type="radio"></td>
+                            </tr>
+                        </table>
+                        <div class="cajaTextoImagen">
+                            <label>Escoge</label>
+                            <input type="file" accept="image/png, image/jpeg, image/jpg, image/svg" id="fondo">
+                            <button id="CambiarFondo">
+                                <span class="material-symbols-outlined">
+                                    done
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cajaBotonesInferiores">
+                    <div>
+                        <button id="btnAbrir" class="BotonesInferioresAcciones" onclick="abrirVentana()">
+                            <span class="material-symbols-outlined">open_in_browser</span>    
+                            Abrir Ventana
+                        </button>
+                    </div>
+                    <div>
+                        <button id="iniciarTexto" class="BotonesInferioresAcciones">
+                            <span class="material-symbols-outlined">start</span>
+                            Iniciar texto
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="lecturaJSON.js"></script>
+    <script src="codigo_texto_inferior.js"></script>
+    <script src="horarios.js"></script>
+    <script src="codigo_index.js"></script>
+    <script>
+        document.getElementsByName('opcionTipoImagen').forEach(element => {
+           element.addEventListener('change', () =>{
+                document.getElementsByName('opcionTipoImagen').forEach(element => {
+                    if(element.checked)
+                        document.getElementById('fondo').setAttribute("type", element.value);
+                });
+           }) 
+        });
+
+        document.getElementById('CambiarFondo').addEventListener('click', () =>{
+            let valorEstilado = `background-image: url(${document.getElementById('fondo').value})`;
+            localStorage.setItem('imagenFondo', valorEstilado)
+        })
+    </script>
+</body>
+
+</html>

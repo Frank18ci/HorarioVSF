@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Horario</title>
+</head>
+<body>
+    
+    <script>
+        var horario;
+        async function leerJSON() {
+            const response = await fetch("./horario.json");
+            const data = await response.json();
+            return data;
+        }
+        async function ejecutarAcciones() {
+            horario = await leerJSON();
+            let nuevoHorario = {
+                "indice": 1.1,
+                "texto": "Empezamos en:",
+                "horaFin": "08:00:00"
+            }
+            let primerTurno = horario.Horarios.PrimerTurno;
+            let agregado = primerTurno.push(nuevoHorario);
+            console.log(primerTurno);    
+            console.log(agregado)
+        } 
+        ejecutarAcciones();
+    </script>
+</body>
+</html>

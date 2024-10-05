@@ -1,0 +1,241 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-row: 1fr;
+}
+
+aside {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(20, 20, 77);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside .cajaImagenAside {
+    padding: 0.5rem;
+}
+
+aside figure {
+    width: 100%;
+    margin: 0 auto;
+}
+
+aside img {
+    width: 100%;
+}
+
+aside .cajaEnlacesAside {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+aside .cajaEnlacesAside div {
+    width: 10em;
+    height: 2em;
+}
+
+aside .cajaEnlacesAside div button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    color: orange;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0rem;
+}
+
+aside .cajaEnlacesAside div button:hover {
+    text-decoration: underline;
+}
+
+aside .cajaBtnCerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+}
+
+aside .cajaBtnCerrar button {
+    border-radius: 50%;
+    border: none;
+    font-size: 1rem;
+    background-color: red;
+    display: none;
+}
+
+main .cajaSecciones {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+
+}
+
+main .cajaSecciones section {
+    width: 100%;
+    height: 100%;
+}
+
+#horariosTable {
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: 2%;
+}
+#horariosBody{
+    overflow-y: auto;
+}
+#horariosTable input{
+    cursor: pointer;
+}
+
+th,
+td, tr {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+#horariosTable th{
+    text-align: center;
+    background-color: rgba(20, 20,77, 1);
+    color: white;
+}
+.cuadroTexto {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.cajaSeleccionTurno{
+    margin: 1rem;
+}
+.cajaSeleccionTurno label{
+    font-weight: bold;
+}
+.cajaBotones{
+    text-align: right;
+}
+.botonesAcciones{
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.btnActulizar{
+    background-color: blue;
+
+}
+.btnPorDefecto{
+    background-color: orange;
+}
+
+.seccionUltima{
+    border-top: 0.2rem solid;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+#bntEditar{
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(66, 66, 66);
+    cursor: pointer;
+}
+.cajaInsertarIT{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+.cajaBotonesInferiores{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.BotonesInferioresAcciones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+#btnAbrir{
+    background-color: rgba(20, 20,77, 1);
+}
+#iniciarTexto{
+    background-color: #ffbb05;
+}
+.tablaOpciones{
+    border: none;
+    width: auto;
+    height: auto;
+}
+.tablaOpciones .tOtd, .tOtr{
+    border: none;
+    width: auto;
+    height: auto;
+}
+.cajaTextoImagen{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+}
+.cajaTextoImagen input{
+    padding: 0.2rem;
+}
+.cajaTextoImagen button{
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgba(20, 20, 77, 1);
+    padding: 0.2rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cajaSeleccionaTextoImagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
